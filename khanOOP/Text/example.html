@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+		<title>SCEditor Demo</title>
+
+		<link rel="stylesheet" href="./minified/themes/default.min.css" type="text/css" media="all" />
+
+		<script src="../js/jquery-2.1.1.js"></script>
+		<script src="./minified/jquery.sceditor.bbcode.min.js"></script>
+
+		<style>
+			html {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 13px;
+			}
+			form div {
+				padding: .5em;
+			}
+			code:before {
+				position: absolute;
+				content: 'Code:';
+				top: -1.35em;
+				left: 0;
+			}
+			code {
+				margin-top: 1.5em;
+				position: relative;
+				background: #eee;
+				border: 1px solid #aaa;
+				white-space: pre;
+				padding: .25em;
+				min-height: 1.25em;
+			}
+			code:before, code {
+				display: block;
+				text-align: left;
+			}
+		</style>
+
+		<script>
+		$(function() {
+			$("#text").sceditor({
+				plugins: "xhtml",
+				style: "minified/jquery.sceditor.default.min.css"
+			});
+
+			$("#bb").sceditor({
+				plugins: "bbcode",
+				style: "minified/jquery.sceditor.default.min.css"
+			});
+		 
+			// Will be [b]Bold![/b]
+			var bbcode       = $("#bb").sceditor('instance').toBBCode('<strong>Bold!</strong>');
+		 
+			// Will be <div><strong>Bold!</strong></div>
+			var html         = $("#bb").sceditor('instance').fromBBCode('[b]Bold![/b]');
+		 	var x = $('#text').val();
+			// Will be <strong>Bold!</strong>
+			var htmlFragment = $("#bb").sceditor('instance').fromBBCode(x, true);
+
+			$("#init").click(function(event) {
+				alert(x);
+				document.getElementById('test').innerHTML = htmlFragment;
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<form action="" method="post">
+			<div>
+				<textarea id="text" name="bbcode_field" style="height:300px;width:600px;">[center][size=3][b]BBCode SCEditor[/b][/size][/center]
+
+Give it a try! :)
+
+[color=#ff00]Red text! [/color][color=#3399ff]Blue?[/color]
+
+[ul][li]A simple list[/li][li]list item 2[/li][/ul]
+
+If you are using IE9+ or any non-IE browser just type [b]:[/b]) and it should be converted into :) as you type.
+				</textarea><br><br><br>
+
+				<textarea id="bb" name="bbcode_field" style="height:300px;width:600px;">[center][size=3][b]BBCode SCEditor[/b][/size][/center]
+
+Give it a try! :)
+
+[color=#ff00]Red text! [/color][color=#3399ff]Blue?[/color]
+
+[ul][li]A simple list[/li][li]list item 2[/li][/ul]
+
+If you are using IE9+ or any non-IE browser just type [b]:[/b]) and it should be converted into :) as you type.
+				</textarea>
+
+			</div>
+
+			<div>
+				<label for="theme">Theme:</label>
+				<select id="theme">
+					<option value="default">Default</option>
+					<option value="modern">Modern</option>
+					<option value="office-toolbar">Office Toolbar</option>
+					<option value="office">Office</option>
+					<option value="square">Square</option>
+				</select>
+			</div>
+		</form>
+		<button id="init" type="button">Teste</button><br><br>
+		<div id="test"></div>
+		<p>SCEditor is licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a></p>
+	</body>
+</html>

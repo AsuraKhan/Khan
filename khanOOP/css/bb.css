@@ -1,0 +1,21 @@
+	code:before {
+		position: absolute;
+		content: 'Code:';
+		top: -1.35em;
+		left: 0;
+	}
+
+	code {
+		margin-top: 1.5em;
+		position: relative;
+		background: #eee;
+		border: 1px solid #aaa;
+		white-space: pre;
+		padding: .25em;
+		min-height: 1.25em;
+	}
+
+	code:before, code {			
+		display: block;
+		text-align: left;
+	}			

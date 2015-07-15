@@ -1,0 +1,45 @@
+.menu {
+    display: none;
+    
+}
+.fixed {
+	display: block;
+    
+}
+
+ .test {
+      position: relative; 
+      top: 50px;
+      height: 700px;
+      overflow: auto;
+      font-size: 28px;
+  }
+
+#section1 {color: #fff;
+	background: url(../img/diablo1.jpg) no-repeat;
+	height: 700px;
+}
+
+#section2 {
+  	color: #fff;
+  	background: url(../img/diablo2.jpg) no-repeat;
+  	 height: 700px;
+}
+
+#section3 {
+	color: #fff;
+  	background: url(../img/diablo4.jpg) no-repeat;
+  	height: 700px;
+}
+
+#section41 {
+	color: #fff;
+  	background: url(../img/diablo2.jpg) no-repeat;
+  	height: 700px;
+}
+
+#section42 {
+	color: #fff;
+   background: url(../img/diablo1.jpg) no-repeat;
+   height: 700px;
+}
